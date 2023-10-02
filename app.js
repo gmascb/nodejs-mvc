@@ -5,10 +5,9 @@ const app  = express();
 
 
 
-// app.set('title', 'My Site');
-// app.get('title') // $: My Site
-// app.set('view engine', 'pug');
+// setting default engint as ejs
 app.set('view engine', 'ejs');
+// setting folder of views
 app.set('views', 'views');
 
 const adminData = require('./routes/admin')
@@ -27,7 +26,8 @@ app.use(shopRoutes);
 
 app.use('/home', (req, res, next) => {
   res.render('home', {
-    title: "Home"
+    title: "Home",
+    path: '/home'
   })
 })
 
